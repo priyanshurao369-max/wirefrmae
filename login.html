@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARMSCON — Login</title>
+  <link rel="stylesheet" href="css/wireframe.css">
+</head>
+<body data-page="profile">
+  <main class="page-main page-pad">
+    <h1 class="page-title">Login</h1>
+    <p class="dev-note" id="ticket-note" hidden>You asked for tickets. After login you land on the QR panel.</p>
+    <form class="form" id="login-form">
+      <div class="field"><label>Email</label><input name="email" type="email" required></div>
+      <div class="field"><label>Password</label><input name="password" type="password" required></div>
+      <button class="ghost" type="submit">Login</button>
+    </form>
+  </main>
+  <script src="js/wireframe.js"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var toTickets = params.get("next") === "tickets";
+      var note = document.getElementById("ticket-note");
+      if (toTickets && note) note.hidden = false;
+      document.getElementById("login-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        location.href = toTickets ? "profile-in.html#tickets" : "profile-in.html";
+      });
+    })();
+  </script>
+</body>
+</html>

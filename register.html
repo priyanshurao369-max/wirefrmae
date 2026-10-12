@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARMSCON — Basic registration</title>
+  <link rel="stylesheet" href="css/wireframe.css">
+</head>
+<body data-page="register">
+  <main class="page-main page-pad">
+    <h1 class="page-title">Basic registration</h1>
+    <p class="dev-note">Two paths only change ID fields. Workshops and events stay the same after this step.</p>
+    <form class="form" data-register-form action="register-picks.html">
+      <p style="letter-spacing:0.1em;text-transform:uppercase;font-size:12px">I am</p>
+      <div class="choice-row" data-choice-group="college-path">
+        <button class="choice is-on" type="button" data-choice="pgims" data-show="pgims">Student of PGIMS</button>
+        <button class="choice" type="button" data-choice="other" data-show="other">Other colleges</button>
+      </div>
+      <div data-pane="pgims">
+        <div class="field"><label>PGIMS roll / college ID</label><input name="pgims_id" placeholder="e.g. UG/2023/0142"></div>
+      </div>
+      <div data-pane="other" hidden>
+        <div class="field"><label>College name</label><input name="college" placeholder="Full college name"></div>
+        <div class="field"><label>ID proof note</label><textarea name="id_note" rows="2" placeholder="College ID number — upload comes in production"></textarea></div>
+      </div>
+      <div class="field"><label>Full name</label><input name="name" required placeholder="Name as on ID"></div>
+      <div class="field"><label>Email</label><input name="email" type="email" required></div>
+      <div class="field"><label>Phone</label><input name="phone" required></div>
+      <div class="field"><label>Password</label><input name="password" type="password" required></div>
+      <button class="ghost" type="submit">Continue to workshops &amp; events</button>
+    </form>
+  </main>
+  <script src="js/wireframe.js"></script>
+</body>
+</html>
